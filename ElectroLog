@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electricista Matriculado en Córdoba</title>
+
+<meta name="description" content="Electricista matriculado en Córdoba. Instalaciones eléctricas, reparaciones, tableros eléctricos y certificados apto eléctrico para hogares y comercios.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height:1.6;
+    color:#333;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+.hero{
+    background:#f4f4f4;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:2.2rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:1.1rem;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+.section{
+    padding:50px 20px;
+}
+
+.section h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    border:1px solid #ddd;
+    padding:20px;
+    border-radius:10px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.benefits{
+    max-width:700px;
+    margin:auto;
+}
+
+.benefits li{
+    margin-bottom:12px;
+}
+
+.contact{
+    text-align:center;
+    background:#f4f4f4;
+}
+
+.footer{
+    text-align:center;
+    padding:25px;
+    background:#222;
+    color:white;
+}
+
+.whatsapp-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    border-radius:50px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:1.8rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="container">
+        <h1>Electricista Matriculado en Córdoba</h1>
+
+        <p>
+            Instalaciones eléctricas, reparaciones, tableros eléctricos y
+            certificados apto eléctrico para hogares y comercios.
+        </p>
+
+        <a class="btn"
+        href="https://wa.me/5493516166602?text=Hola,%20vi%20tu%20anuncio%20en%20Google%20y%20necesito%20un%20electricista."
+        target="_blank">
+        Solicitar Presupuesto por WhatsApp
+        </a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Servicios</h2>
+
+        <div class="services">
+
+            <div class="card">
+                <h3>Certificados y Aptos Eléctricos</h3>
+                <p>
+                    Certificados e informes eléctricos para habilitaciones,
+                    alquileres y trámites.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Instalaciones Eléctricas</h3>
+                <p>
+                    Instalaciones nuevas, ampliaciones y adecuaciones según normativa vigente.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Reparaciones Eléctricas</h3>
+                <p>
+                    Diagnóstico y solución de fallas eléctricas en viviendas y comercios.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Tableros Eléctricos</h3>
+                <p>
+                    Armado, renovación y adecuación de tableros eléctricos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Hogares y Comercios</h3>
+                <p>
+                    Atención para viviendas, locales comerciales y oficinas.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>¿Por Qué Elegirnos?</h2>
+
+        <ul class="benefits">
+            <li>✔ Electricista matriculado</li>
+            <li>✔ Atención personalizada</li>
+            <li>✔ Trabajos según normativa vigente</li>
+            <li>✔ Presupuestos claros</li>
+            <li>✔ Soluciones seguras y confiables</li>
+            <li>✔ Atención en Córdoba Capital y alrededores</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Zona de Trabajo</h2>
+
+        <p style="text-align:center;">
+            Córdoba Capital y localidades cercanas.
+        </p>
+    </div>
+</section>
+
+<section class="section contact">
+    <div class="container">
+        <h2>Solicite una Consulta</h2>
+
+        <p>
+            ¿Necesita un electricista matriculado?
+        </p>
+
+        <br>
+
+        <a class="btn"
+        href="https://wa.me/5493516166602?text=Hola,%20vi%20tu%20anuncio%20en%20Google%20y%20necesito%20un%20electricista."
+        target="_blank">
+        Enviar Mensaje por WhatsApp
+        </a>
+
+        <br><br>
+
+        <p><strong>Horario de Atención</strong></p>
+        <p>Lunes a Sábados</p>
+        <p>09:00 a 19:00 hs</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>Electricista Matriculado | Córdoba Capital</p>
+    <p>WhatsApp: +54 9 351 616-6602</p>
+</footer>
+
+<a class="whatsapp-float"
+href="https://wa.me/5493516166602?text=Hola,%20vi%20tu%20anuncio%20en%20Google%20y%20necesito%20un%20electricista."
+target="_blank">
+WhatsApp
+</a>
+
+</body>
+</html>
