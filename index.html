@@ -26,91 +26,84 @@
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             color: var(--text-main);
             background-color: var(--bg-page);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Contenedor Principal estilo App Móvil Premium */
-        .wrapper {
-            max-width: 500px;
+        /* Contenedor adaptativo para Computadora y Celular */
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
             background: var(--bg-card);
             min-height: 100vh;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
-            position: relative;
         }
 
-        /* Encabezado Moderno y Profesional */
+        /* Encabezado */
         .hero {
             background: linear-gradient(135deg, var(--primary) 0%, #1a1e2e 100%);
             color: #ffffff;
-            padding: 45px 24px;
+            padding: 50px 20px;
             text-align: center;
-            border-bottom-left-radius: 28px;
-            border-bottom-right-radius: 28px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
 
         .hero h1 {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
-            margin-bottom: 8px;
-            letter-spacing: -0.7px;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 15px;
+            font-size: 16px;
             color: #a1a1aa;
             font-weight: 400;
-            max-width: 80%;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .badge {
             background-color: var(--accent);
             color: var(--primary);
-            padding: 7px 18px;
+            padding: 8px 20px;
             border-radius: 50px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
             margin-top: 16px;
             display: inline-block;
             text-transform: uppercase;
         }
 
-        /* Contenido de la Página */
-        .content {
-            padding: 24px;
-            flex: 1;
+        /* Sección de contenido dividida en dos columnas para PC */
+        .main-layout {
+            padding: 30px 20px;
+            display: block; /* Por defecto para celular */
         }
 
-        /* Galería de Fotos Reales (Efecto de Confianza) */
+        /* Nueva Galería de Imágenes Ajustable */
         .image-gallery {
-            width: 100%;
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin-bottom: 30px;
         }
 
         .gallery-item {
-            border-radius: 18px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             border: 1px solid #e5e7eb;
             position: relative;
+            height: 180px;
         }
 
-        .photo-main {
-            grid-column: 1 / -1;
-            height: 250px;
-        }
-
-        .photo-inset-1 {
-            height: 150px;
-        }
-        .photo-inset-2 {
-            height: 150px;
+        /* Hacemos que la primera imagen sea más destacada */
+        .gallery-item.featured {
+            grid-column: span 2;
+            height: 260px;
         }
 
         .hero-image {
@@ -124,7 +117,7 @@
             position: absolute;
             bottom: 10px;
             left: 10px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.65);
             color: white;
             padding: 4px 10px;
             border-radius: 6px;
@@ -132,42 +125,36 @@
             font-weight: 600;
         }
 
-        /* Sección de Servicios Técnicos */
+        /* Sección de Servicios */
         .services-section h2 {
-            font-size: 19px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary);
+            padding-left: 10px;
         }
 
         .services-grid {
             display: flex;
             flex-direction: column;
             gap: 14px;
+            margin-bottom: 30px;
         }
 
         .service-card {
             background: #f9fafb;
             border: 1px solid #e5e7eb;
             padding: 16px;
-            border-radius: 14px;
+            border-radius: 12px;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 14px;
-            transition: border-color 0.2s;
-        }
-
-        .service-card:active {
-            border-color: var(--secondary);
         }
 
         .icon-box {
-            font-size: 20px;
+            font-size: 22px;
             line-height: 1;
-            margin-top: 3px;
         }
 
         .service-text {
@@ -176,17 +163,15 @@
             color: var(--text-main);
         }
 
-        /* Botón de WhatsApp GIGANTE y Directo (MÁXIMO CLIC) */
+        /* Botón de WhatsApp Gigante de Alta Conversión */
         .cta-box {
-            margin-top: 35px;
             text-align: center;
-            padding-bottom: 45px;
+            margin: 20px 0 40px 0;
         }
 
-        /* Animación de pulso para atraer el ojo */
         @keyframes pulsewsp {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
@@ -199,38 +184,43 @@
             color: #ffffff;
             text-decoration: none;
             width: 100%;
-            padding: 20px;
+            max-width: 500px;
+            padding: 20px 30px;
             border-radius: 16px;
             font-size: 18px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+            animation: pulsewsp 2s infinite;
             transition: background-color 0.2s, transform 0.1s;
-            animation: pulsewsp 2s infinite; /* Activar pulso */
+        }
+
+        .btn-massive-wsp:hover {
+            background-color: #1ebd58;
         }
 
         .btn-massive-wsp:active {
-            background-color: #1ebd58;
-            transform: scale(0.97);
+            transform: scale(0.98);
         }
 
         .cta-subtext {
             display: block;
-            margin-top: 10px;
-            font-size: 13px;
+            margin-top: 12px;
+            font-size: 14px;
             color: var(--text-sub);
             font-weight: 500;
         }
 
-        /* Footer con Confianza */
+        /* Footer */
         .footer {
             background-color: #f9fafb;
             border-top: 1px solid #e5e7eb;
             text-align: center;
-            padding: 28px;
+            padding: 30px 20px;
             font-size: 13px;
             color: var(--text-sub);
+            margin-top: auto;
         }
 
         .footer p:first-child {
@@ -238,11 +228,38 @@
             color: var(--text-main);
             margin-bottom: 6px;
         }
+
+        /* --- DISEÑO PARA COMPUTADORA (PANTALLAS GRANDES) --- */
+        @media (min-width: 768px) {
+            .main-layout {
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 40px;
+                align-items: start;
+            }
+            
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .image-gallery {
+                margin-bottom: 0;
+            }
+            
+            .cta-box {
+                grid-column: span 2;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
+    <div class="container">
         
         <div class="hero">
             <h1>Servicio Técnico Eléctrico</h1>
@@ -250,24 +267,20 @@
             <span class="badge">Categoría III - Instalador Habilitado</span>
         </div>
 
-        <div class="content">
+        <div class="main-layout">
             
-            <!-- Galería de Fotos Reales Vinculadas -->
             <div class="image-gallery">
-                <div class="gallery-item photo-main">
-                    <!-- Foto principal: Panel completo (image_4.png.jpeg) -->
-                    <img class="hero-image" src="image_4.png.jpeg" alt="Instalación Eléctrica Real de Tablero">
+                <div class="gallery-item featured">
+                    <img class="hero-image" src="image_4.png.jpg" alt="Instalación de Tablero Eléctrico">
                     <span class="photo-label">Trabajo Real</span>
                 </div>
-                <div class="gallery-item photo-inset-1">
-                    <!-- Foto detalle: Interruptores con etiquetas (image_3.png.jpeg) -->
-                    <img class="hero-image" src="image_3.png.jpeg" alt="Detalle Técnico de Térmicas">
+                <div class="gallery-item">
+                    <img class="hero-image" src="image_3.png.jpg" alt="Detalle de Térmicas">
                     <span class="photo-label">Detalle Técnico</span>
                 </div>
-                <div class="gallery-item photo-inset-2">
-                    <!-- Duplicado estético para armar la grilla de la app -->
-                    <img class="hero-image" src="image_4.png.jpeg" alt="Vista General del Panel">
-                    <span class="photo-label">Vista General</span>
+                <div class="gallery-item">
+                    <img class="hero-image" src="image_4.png.jpg" alt="Vista General del Panel">
+                    <span class="photo-label">Terminaciones</span>
                 </div>
             </div>
 
@@ -299,9 +312,8 @@
             </div>
 
             <div class="cta-box">
-                <!-- BOTÓN MASIVO, PULSATING Y DIRECTO -->
                 <a href="https://wa.me/5493516166602" class="btn-massive-wsp" target="_blank">
-                    <span>💬 HABLA CON NOSOTROS POR WSP X PRESUPUESTO RÁPIDO</span>
+                    <span>💬 PRESUPUESTO RÁPIDO POR WHATSAPP</span>
                 </a>
                 <span class="cta-subtext">¡Cotizá tu instalación de forma segura hoy mismo!</span>
             </div>
