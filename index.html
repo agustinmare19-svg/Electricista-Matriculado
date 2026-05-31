@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electricista Matriculado Córdoba - Soluciones Técnicas y Domótica</title>
+    <title>Electricista Matriculado Córdoba - Servicio Técnico Profesional</title>
     <style>
         :root {
-            --primary: #0f172a;
+            --primary: #0b0f19;
+            --primary-light: #1e293b;
             --secondary: #2563eb;
             --accent: #f59e0b;
+            --accent-glow: #fbbf24;
             --wsp-green: #25d366;
             --text-main: #1e293b;
             --text-sub: #64748b;
             --bg-page: #f8fafc;
             --bg-card: #ffffff;
-            --domotica: #7c3aed;
         }
 
         * {
@@ -30,97 +31,96 @@
             line-height: 1.6;
         }
 
-        /* Contenedor Adaptativo Avanzado */
+        /* Contenedor Principal Adaptativo */
         .container {
-            max-width: 1050px;
+            max-width: 1000px;
             margin: 0 auto;
             background: var(--bg-card);
             min-height: 100vh;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+            box-shadow: 0 20px 40px rgba(11, 15, 25, 0.03);
             display: flex;
             flex-direction: column;
         }
 
-        /* Encabezado Principal */
+        /* Encabezado Premium de Alto Impacto */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e1b4b 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #111827 100%);
             color: #ffffff;
             padding: 60px 24px;
             text-align: center;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
+            border-bottom: 4px solid var(--accent);
         }
 
         .hero h1 {
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 12px;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
         }
 
         .hero p {
-            font-size: 16px;
+            font-size: 17px;
             color: #94a3b8;
             font-weight: 400;
-            max-width: 620px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Fila de Características Rápidas (Iconos de Confianza) */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 750px;
             margin: 0 auto;
         }
 
-        .badges-container {
+        .trust-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 12px;
             display: flex;
-            justify-content: center;
+            align-items: center;
             gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #f1f5f9;
         }
 
-        .badge {
-            background-color: var(--accent);
-            color: var(--primary);
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .trust-item span {
+            color: var(--accent);
+            font-size: 16px;
         }
 
-        .badge.tech {
-            background-color: var(--domotica);
-            color: #ffffff;
-        }
-
-        /* Layout de Contenido Principal */
+        /* Layout de Contenido */
         .main-layout {
-            padding: 35px 24px;
+            padding: 40px 24px;
         }
 
-        /* Grilla Fotográfica Optimizada */
+        /* Galería Limpia de 2 Fotos Reales */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 16px;
             margin-bottom: 35px;
         }
 
         .gallery-item {
             border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
             position: relative;
-            height: 160px;
-            background-color: #f1f5f9;
-        }
-
-        .gallery-item.featured {
-            grid-column: span 2;
-            height: 280px;
-        }
-
-        .gallery-item.wide {
-            grid-column: span 2;
-            height: 180px;
+            height: 220px;
         }
 
         .hero-image {
@@ -128,49 +128,32 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .hero-image {
-            transform: scale(1.03);
         }
 
         .photo-label {
             position: absolute;
             bottom: 12px;
             left: 12px;
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(4px);
             color: white;
             padding: 4px 12px;
             border-radius: 8px;
             font-size: 11px;
             font-weight: 600;
-            letter-spacing: 0.3px;
         }
 
-        /* Secciones de Servicios */
-        .section-title {
-            font-size: 22px;
+        /* Sección de Servicios */
+        .services-section h2 {
+            font-size: 24px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--secondary);
             padding-left: 12px;
-            position: relative;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
         }
-
-        .section-title::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 4px;
-            bottom: 4px;
-            width: 4px;
-            border-radius: 2px;
-        }
-
-        .title-electrica::before { background-color: var(--secondary); }
-        .title-domotica::before { background-color: var(--domotica); }
 
         .services-grid {
             display: flex;
@@ -182,16 +165,17 @@
         .service-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            padding: 16px;
+            padding: 16px 20px;
             border-radius: 14px;
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             transition: all 0.2s ease;
         }
 
         .service-card:hover {
             border-color: #cbd5e1;
+            transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
@@ -208,15 +192,15 @@
             color: var(--text-main);
         }
 
-        /* Botón de WhatsApp de Alta Conversión */
+        /* Área de Botón de WhatsApp Magnético */
         .cta-box {
             text-align: center;
-            margin: 25px 0 35px 0;
+            margin: 20px 0 30px 0;
         }
 
         @keyframes pulsewsp {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
@@ -229,14 +213,14 @@
             color: #ffffff;
             text-decoration: none;
             width: 100%;
-            max-width: 520px;
-            padding: 20px 24px;
+            max-width: 540px;
+            padding: 22px 24px;
             border-radius: 16px;
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
             animation: pulsewsp 2s infinite;
             transition: background-color 0.2s ease, transform 0.1s ease;
         }
@@ -251,7 +235,7 @@
 
         .cta-subtext {
             display: block;
-            margin-top: 12px;
+            margin-top: 14px;
             font-size: 14px;
             color: var(--text-sub);
             font-weight: 500;
@@ -274,31 +258,34 @@
             margin-bottom: 6px;
         }
 
-        /* --- MEDIA QUERY: COMPUTADORAS Y PANTALLAS GRANDES --- */
+        /* --- MEDIA QUERY: COMPUTADORAS (PANTALLAS GRANDES) --- */
         @media (min-width: 768px) {
             .main-layout {
                 display: grid;
-                grid-template-columns: 1.1fr 0.9fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 40px;
                 align-items: start;
             }
             
             .hero {
-                padding: 70px 24px;
+                padding: 80px 24px;
             }
 
             .hero h1 {
-                font-size: 42px;
+                font-size: 46px;
             }
 
             .image-gallery {
                 margin-bottom: 0;
             }
             
+            .gallery-item {
+                height: 260px;
+            }
+            
             .cta-box {
                 grid-column: span 2;
-                margin-top: 30px;
-                margin-bottom: 10px;
+                margin-top: 25px;
             }
         }
     </style>
@@ -308,95 +295,72 @@
     <div class="container">
         
         <div class="hero">
-            <h1>Servicio Técnico Eléctrico & Domótica</h1>
-            <p>Soluciones Profesionales e Instalaciones Inteligentes bajo Normas AEA</p>
-            <div class="badges-container">
-                <span class="badge">Categoría III - Instalador Habilitado</span>
-                <span class="badge tech">Hogares Inteligentes</span>
+            <h1>Electricista <span>Matriculado</span> Córdoba</h1>
+            <p>Soluciones Técnicas Profesionales e Ingeniería en Tableros Eléctricos</p>
+            
+            <div class="trust-badges">
+                <div class="trust-item"><span>⚡</span> Habilitado ERSeP Cat. III</div>
+                <div class="trust-item"><span>📘</span> Normativas AEA 90364</div>
+                <div class="trust-item"><span>📋</span> Presupuesto Sin Cargo</div>
             </div>
         </div>
 
         <div class="main-layout">
             
             <div class="image-gallery">
-                <div class="gallery-item featured">
-                    <img class="hero-image" src="image_4.png.jpg" alt="Montaje de Tablero Eléctrico Principal">
-                    <span class="photo-label">Tableros e Ingeniería</span>
+                <div class="gallery-item">
+                    <img class="hero-image" src="image_4.png.jpg" alt="Instalación Real de Tablero Eléctrico">
+                    <span class="photo-label">Tableros Generales</span>
                 </div>
                 <div class="gallery-item">
-                    <img class="hero-image" src="image_3.png.jpg" alt="Detalle Técnico de Protecciones">
-                    <span class="photo-label">Protecciones Especiales</span>
-                </div>
-                <div class="gallery-item">
-                    <img class="hero-image" src="image_5.png" alt="Instalación Eléctrica en Obra">
-                    <span class="photo-label">Instalaciones en Obra</span>
-                </div>
-                <div class="gallery-item">
-                    <img class="hero-image" src="image_6.png.jpeg" alt="Cableado y Canalizaciones Profesionales">
-                    <span class="photo-label">Conexionado Técnico</span>
-                </div>
-                <div class="gallery-item wide">
-                    <img class="hero-image" src="image_7.png.jpeg" alt="Terminaciones de Calidad y Confort">
-                    <span class="photo-label">Terminaciones de Precisión</span>
+                    <img class="hero-image" src="image_3.png.jpg" alt="Detalle de Protecciones Térmicas">
+                    <span class="photo-label">Protección y Seguridad</span>
                 </div>
             </div>
 
-            <div class="content-services">
+            <div class="services-section">
+                <h2>Servicios Técnicos Especializados</h2>
                 
-                <h2 class="section-title title-electrica">⚡ Instalaciones Habilitadas</h2>
                 <div class="services-grid">
                     <div class="service-card">
                         <span class="icon-box">🛠️</span>
-                        <span class="service-text">Montaje, cableado y modernización de tableros generales y seccionales.</span>
+                        <span class="service-text">Montaje, armado, cableado y modernización integral de tableros eléctricos.</span>
                     </div>
                     <div class="service-card">
                         <span class="icon-box">🔒</span>
-                        <span class="service-text">Cálculo de protecciones térmicas, diferenciales y guardamotores.</span>
+                        <span class="service-text">Instalación y cálculo preciso de protecciones térmicas y diferenciales.</span>
                     </div>
                     <div class="service-card">
                         <span class="icon-box">❄️</span>
-                        <span class="service-text">Circuitos dedicados e independientes para aire acondicionado y líneas de potencia.</span>
+                        <span class="service-text">Circuitos independientes dedicados para aire acondicionado y líneas de gran potencia.</span>
                     </div>
                     <div class="service-card">
                         <span class="icon-box">🔍</span>
-                        <span class="service-text">Diagnóstico avanzado de fugas de corriente, fallas de aislamiento y cortocircuitos.</span>
+                        <span class="service-text">Diagnóstico de fugas de corriente, fallas de aislamiento y cortocircuitos.</span>
                     </div>
-                </div>
-
-                <h2 class="section-title title-domotica">🧠 Domótica & Confort Inteligente</h2>
-                <div class="services-grid">
+                    <div class="service-card">
+                        <span class="icon-box">📐</span>
+                        <span class="service-text">Medición de puesta a tierra y adecuaciones reglamentarias vigentes.</span>
+                    </div>
                     <div class="service-card">
                         <span class="icon-box">📱</span>
-                        <span class="service-text">Automatización integral de iluminación y control de consumos desde el celular.</span>
-                    </div>
-                    <div class="service-card">
-                        <span class="icon-box">🗣️</span>
-                        <span class="service-text">Vinculación y configuración de comandos por voz (Alexa, Google Assistant).</span>
-                    </div>
-                    <div class="service-card">
-                        <span class="icon-box">⏱️</span>
-                        <span class="service-text">Programación de escenas horarias, temporizadores e interruptores inteligentes.</span>
-                    </div>
-                    <div class="service-card">
-                        <span class="icon-box">⚙️</span>
-                        <span class="service-text">Modernización de tableros tradicionales incorporando módulos de comando remoto.</span>
+                        <span class="service-text">Automatización del hogar, temporizadores e interruptores inteligentes (Domótica).</span>
                     </div>
                 </div>
-                
             </div>
 
             <div class="cta-box">
                 <a href="https://wa.me/5493516166602" class="btn-massive-wsp" target="_blank">
-                    <span>💬 PRESUPUESTO RÁPIDO POR WHATSAPP</span>
+                    <span>💬 SOLICITAR PRESUPUESTO POR WHATSAPP</span>
                 </a>
-                <span class="cta-subtext">¡Consultanos tu proyecto y cotizá hoy mismo!</span>
+                <span class="cta-subtext">¡Atención inmediata para Córdoba y zonas aledañas!</span>
             </div>
 
         </div>
 
         <div class="footer">
-            <p>Atención Técnica Especializada en Córdoba y Zonas Aledañas</p>
-            <p>Seguridad Eléctrica, Certificación Reglamentaria y Tecnología de Vanguardia.</p>
+            <p>Atención Directa en la Ciudad de Córdoba y Alrededores</p>
+            <p>Máxima Seguridad Eléctrica, Garantía Técnica y Cumplimiento Reglamentario.</p>
         </div>
 
     </div>
