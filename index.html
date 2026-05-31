@@ -1,68 +1,354 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricista Matriculado Córdoba - Servicio Técnico Profesional</title>
+    <style>
+        :root {
+            --primary: #1e3a8a; /* Azul institucional, limpio y serio */
+            --secondary: #2563eb;
+            --accent: #d97706;
+            --wsp-green: #25d366;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --bg-page: #f8fafc; /* Gris ultra claro de fondo para resaltar los recuadros */
+            --bg-card: #ffffff; /* Recuadros totalmente blancos */
+            --border-color: #e2e8f0;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<title>Electricista Matriculado Córdoba</title>
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            line-height: 1.6;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+        /* Contenedor Principal Centrado y Limpio */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        /* Encabezado Claro y Organizado */
+        .hero {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px 24px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
 
-<style>
+        .hero h1 {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
 
-/* PEGAS ACA TODO EL CSS */
+        .hero p {
+            font-size: 16px;
+            color: var(--text-sub);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 24px auto;
+        }
 
-</style>
+        /* Recuadros Destacados Rápidos (Pilares de Confianza) */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
+        .trust-item {
+            background: var(--bg-page);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Layout de Bloques en Pantallas Grandes */
+        .main-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Bloque de Galería Limpia de Fotos Reales */
+        .gallery-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .block-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+            height: 240px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-label {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-main);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Bloque de Servicios Técnicos Detallados */
+        .services-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .service-card {
+            background: var(--bg-page);
+            border: 1px solid var(--border-color);
+            padding: 14px 18px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .icon-box {
+            font-size: 20px;
+            line-height: 1;
+            min-width: 24px;
+        }
+
+        .service-text {
+            font-size: 14.5px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* Recuadro de Llamado a la Acción (WhatsApp) */
+        .cta-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 30px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        @keyframes pulsewsp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .btn-massive-wsp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--wsp-green);
+            color: #ffffff;
+            text-decoration: none;
+            width: 100%;
+            max-width: 500px;
+            padding: 18px 24px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
+            animation: pulsewsp 2s infinite;
+            transition: background-color 0.2s;
+        }
+
+        .btn-massive-wsp:hover {
+            background-color: #1ebd58;
+        }
+
+        .cta-subtext {
+            display: block;
+            margin-top: 12px;
+            font-size: 13.5px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px 0 10px 0;
+            font-size: 12.5px;
+            color: var(--text-sub);
+        }
+
+        /* --- CONFIGURACIÓN PARA PANTALLAS GRANDES (PC) --- */
+        @media (min-width: 768px) {
+            .side-by-side {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero {
+                padding: 50px 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- PEGAS ACA EL HERO -->
+    <div class="container">
+        
+        <div class="hero">
+            <h1>Electricista Matriculado Córdoba</h1>
+            <p>Soluciones técnicas profesionales y armado de tableros bajo normativas vigentes</p>
+            
+            <div class="trust-badges">
+                <div class="trust-item">⚡ Habilitado ERSeP Cat. III</div>
+                <div class="trust-item">📘 Normas AEA 90364</div>
+                <div class="trust-item">📋 Presupuesto Sin Cargo</div>
+            </div>
+        </div>
 
-<section class="hero">
+        <div class="main-layout">
+            
+            <div class="side-by-side">
+                
+                <div class="gallery-block">
+                    <h2 class="block-title">Trabajos Reales</h2>
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img class="hero-image" src="image_4.png.jpg" alt="Tablero Eléctrico Real">
+                            <span class="photo-label">Tablero General</span>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="hero-image" src="image_3.png.jpg" alt="Protecciones Eléctricas">
+                            <span class="photo-label">Componentes</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="hero-text">
+                <div class="services-block">
+                    <h2 class="block-title">Servicios Técnicos</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <span class="icon-box">🛠️</span>
+                            <span class="service-text">Montaje, cableado y modernización de tableros.</span>
+                        </div>
+                        <div class="service-card">
+                            <span class="icon-box">🔒</span>
+                            <span class="service-text">Cálculo de protecciones térmicas y diferenciales.</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
 
-    <span class="mini-title">
-        ELECTRICISTA MATRICULADO
-    </span>
+            <div class="services-block">
+                <h2 class="block-title">Especialidades e Instalaciones</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <span class="icon-box">❄️</span>
+                        <span class="service-text">Circuitos independientes dedicados para aires acondicionados.</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="icon-box">🔍</span>
+                        <span class="service-text">Diagnóstico avanzado de fugas eléctricas y cortocircuitos.</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="icon-box">📐</span>
+                        <span class="service-text">Medición de puesta a tierra y adecuación reglamentaria.</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="icon-box">📱</span>
+                        <span class="service-text">Automatización integral y soluciones básicas de domótica.</span>
+                    </div>
+                </div>
+            </div>
 
-    <h1>
-        Instalaciones eléctricas<br>
-        seguras y modernas
-    </h1>
+            <div class="cta-block">
+                <a href="https://wa.me/5493516166602" class="btn-massive-wsp" target="_blank">
+                    <span>💬 SOLICITAR PRESUPUESTO POR WHATSAPP</span>
+                </a>
+                <span class="cta-subtext">Atención inmediata en la ciudad de Córdoba y alrededores</span>
+            </div>
 
-    <p>
-        Soluciones eléctricas para hogares y comercios.
-        Protección eléctrica, tableros, iluminación LED,
-        automatización y domótica.
-    </p>
+        </div>
 
-    <a href="https://wa.me/5493516166602" class="btn-wsp" target="_blank">
+        <div class="footer">
+            <p>© 2026 Servicio Técnico Eléctrico Profesional - Córdoba</p>
+        </div>
 
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-
-        WhatsApp
-
-    </a>
-
-</div>
-
-<div class="hero-image">
-
-    <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1200&auto=format&fit=crop">
-
-</div>
-
-</section>
+    </div>
 
 </body>
-
 </html>
-```
