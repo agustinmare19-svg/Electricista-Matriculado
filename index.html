@@ -1,278 +1,594 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Electricista Matriculado Córdoba</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
+<title>Electricista Matriculado Córdoba</title>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:#0f1115;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BOTON FLOTANTE */
+
+.wsp-float{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:68px;
+    height:68px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    text-decoration:none;
+    box-shadow:0 0 25px rgba(37,211,102,.6);
+    animation:pulse 2s infinite;
+    transition:.3s;
+}
+
+.wsp-float:hover{
+    transform:scale(1.12);
+}
+
+.wsp-float img{
+    width:34px;
+}
+
+@keyframes pulse{
+
+    0%{
+        box-shadow:0 0 0 0 rgba(37,211,102,.7);
     }
 
-    body{
-      background:#0f1115;
-      color:white;
-      line-height:1.6;
+    70%{
+        box-shadow:0 0 0 18px rgba(37,211,102,0);
     }
 
-    header{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:40px 20px;
-      background:
-      linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
-      url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1400&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
+    100%{
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
     }
 
-    .hero{
-      max-width:800px;
+}
+
+/* HERO */
+
+.hero{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(10,10,10,.70), rgba(10,10,10,.75)),
+    url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1600&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:40px 20px;
+
+    position:relative;
+}
+
+/* EFECTO ORGANICO */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-1px;
+    left:0;
+
+    width:100%;
+    height:140px;
+
+    background:#0f1115;
+
+    border-radius:100% 100% 0 0;
+
+}
+
+/* CONTENIDO HERO */
+
+.hero-content{
+
+    position:relative;
+    z-index:2;
+
+    max-width:850px;
+
+    text-align:center;
+}
+
+/* CAJA TRANSPARENTE */
+
+.hero-box{
+
+    background:rgba(20,20,20,.45);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    padding:50px 35px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.35);
+}
+
+.hero h1{
+
+    font-size:3.3rem;
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+    color:#ffd54a;
+}
+
+.hero p{
+
+    color:#e2e2e2;
+
+    font-size:1.15rem;
+
+    margin-bottom:35px;
+
+    line-height:1.8;
+}
+
+/* BOTON */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+    gap:12px;
+
+    background:#25D366;
+
+    color:white;
+
+    padding:17px 34px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    font-size:1rem;
+
+    transition:.3s;
+
+    box-shadow:0 8px 25px rgba(37,211,102,.35);
+
+    animation:float 3s ease-in-out infinite;
+}
+
+.btn:hover{
+
+    transform:translateY(-4px) scale(1.03);
+}
+
+.btn img{
+    width:24px;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
     }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* SECCIONES */
+
+section{
+
+    padding:90px 20px;
+
+    position:relative;
+    z-index:2;
+}
+
+.container{
+
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-title{
+
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+
+    font-size:2.4rem;
+    color:#ffd54a;
+}
+
+/* TARJETAS */
+
+.services{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:28px;
+}
+
+.card{
+
+    background:#181b22;
+
+    padding:35px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    background:rgba(255,213,74,.08);
+
+    border-radius:50%;
+
+    top:-40px;
+    right:-40px;
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(255,213,74,.4);
+}
+
+.card h3{
+
+    margin-bottom:15px;
+
+    color:#ffd54a;
+
+    font-size:1.3rem;
+}
+
+.card p{
+
+    color:#cfcfcf;
+
+    line-height:1.7;
+}
+
+/* DOMOTICA */
+
+.domotica{
+
+    text-align:center;
+}
+
+.domotica-box{
+
+    background:#181b22;
+
+    border-radius:35px;
+
+    padding:60px 35px;
+
+    max-width:900px;
+
+    margin:auto;
+
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.domotica p{
+
+    color:#d7d7d7;
+
+    line-height:1.9;
+
+    font-size:1.08rem;
+}
+
+/* CONTACTO */
+
+.contacto{
+
+    text-align:center;
+}
+
+.contacto p{
+
+    color:#cfcfcf;
+
+    margin-bottom:30px;
+}
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    color:#888;
+
+    background:#090b0e;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
 
     .hero h1{
-      font-size:3rem;
-      margin-bottom:20px;
-      color:#ffd54a;
+        font-size:2.3rem;
+    }
+
+    .hero-box{
+        padding:40px 25px;
     }
 
     .hero p{
-      font-size:1.2rem;
-      margin-bottom:30px;
-      color:#ddd;
-    }
-
-    .btn{
-      display:inline-block;
-      background:#25D366;
-      color:white;
-      padding:15px 28px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:bold;
-      transition:.3s;
-    }
-
-    .btn:hover{
-      transform:scale(1.05);
-    }
-
-    section{
-      padding:70px 20px;
-    }
-
-    .container{
-      max-width:1100px;
-      margin:auto;
-    }
-
-    .title{
-      text-align:center;
-      margin-bottom:50px;
-    }
-
-    .title h2{
-      font-size:2.2rem;
-      color:#ffd54a;
-    }
-
-    .services{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:#1a1d24;
-      padding:30px;
-      border-radius:18px;
-      transition:.3s;
-      border:1px solid #2b303b;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
-      border-color:#ffd54a;
-    }
-
-    .card h3{
-      margin-bottom:15px;
-      color:#ffd54a;
-    }
-
-    .domotica{
-      background:#15181f;
-      text-align:center;
-    }
-
-    .domotica p{
-      max-width:800px;
-      margin:auto;
-      color:#ccc;
-      font-size:1.1rem;
-    }
-
-    .contacto{
-      text-align:center;
-    }
-
-    .contacto h2{
-      margin-bottom:20px;
-    }
-
-    footer{
-      text-align:center;
-      padding:25px;
-      background:#090b0e;
-      color:#999;
-      font-size:14px;
-    }
-
-    @media(max-width:768px){
-
-      .hero h1{
-        font-size:2.2rem;
-      }
-
-      .hero p{
         font-size:1rem;
-      }
-
     }
 
-  </style>
+    .section-title h2{
+        font-size:2rem;
+    }
+
+    .wsp-float{
+        width:62px;
+        height:62px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-<header>
+<!-- BOTON FLOTANTE -->
 
-  <div class="hero">
+<a class="wsp-float" href="https://wa.me/5493516166602" target="_blank">
 
-    <h1>Electricista Matriculado en Córdoba</h1>
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 
-    <p>
-      Instalaciones eléctricas, reparaciones, tableros,
-      protecciones eléctricas y soluciones inteligentes para hogares y comercios.
-    </p>
+</a>
 
-    <a class="btn" href="https://wa.me/5493516166602" target="_blank">
-      WhatsApp
-    </a>
+<!-- HERO -->
 
-  </div>
+<header class="hero">
+
+<div class="hero-content">
+
+<div class="hero-box">
+
+<h1>
+Electricista Matriculado<br>
+en Córdoba
+</h1>
+
+<p>
+Instalaciones eléctricas, tableros, protecciones,
+domótica y soluciones modernas para hogares y comercios.
+</p>
+
+<a class="btn" href="https://wa.me/5493516166602" target="_blank">
+
+Solicitar presupuesto
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
+</a>
+
+</div>
+
+</div>
 
 </header>
 
+<!-- SERVICIOS -->
+
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="title">
-      <h2>Servicios</h2>
-    </div>
+<div class="section-title">
 
-    <div class="services">
+<h2>Servicios</h2>
 
-      <div class="card">
-        <h3>Instalaciones Eléctricas</h3>
-        <p>
-          Cableados, tableros, térmicas, disyuntores y adecuaciones eléctricas.
-        </p>
-      </div>
+</div>
 
-      <div class="card">
-        <h3>Protección Eléctrica</h3>
-        <p>
-          Protectores de tensión para evitar daños por subas y bajas de tensión.
-        </p>
-      </div>
+<div class="services">
 
-      <div class="card">
-        <h3>Certificados</h3>
-        <p>
-          Certificados eléctricos y trabajos realizados según normativa vigente.
-        </p>
-      </div>
+<div class="card">
 
-      <div class="card">
-        <h3>Domótica</h3>
-        <p>
-          Automatización de luces, portones, climatización y control desde el celular.
-        </p>
-      </div>
+<h3>Instalaciones Eléctricas</h3>
 
-      <div class="card">
-        <h3>Iluminación LED</h3>
-        <p>
-          Instalación y renovación de iluminación moderna y eficiente.
-        </p>
-      </div>
+<p>
+Cableados, tableros, térmicas,
+disyuntores y adecuaciones eléctricas.
+</p>
 
-      <div class="card">
-        <h3>Mantenimiento</h3>
-        <p>
-          Soluciones para hogares, locales comerciales y oficinas.
-        </p>
-      </div>
+</div>
 
-    </div>
+<div class="card">
 
-  </div>
+<h3>Protección Eléctrica</h3>
+
+<p>
+Protectores de tensión para cuidar
+electrodomésticos y equipos electrónicos.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Certificados</h3>
+
+<p>
+Certificados eléctricos y trabajos
+realizados según normativa vigente.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Domótica</h3>
+
+<p>
+Automatización de luces, portones,
+climatización y control desde el celular.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Iluminación LED</h3>
+
+<p>
+Instalación y renovación de iluminación
+moderna y eficiente.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Mantenimiento</h3>
+
+<p>
+Soluciones eléctricas para hogares,
+locales comerciales y oficinas.
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
+
+<!-- DOMOTICA -->
 
 <section class="domotica">
 
-  <div class="container">
+<div class="container">
 
-    <div class="title">
-      <h2>Domótica y Hogar Inteligente</h2>
-    </div>
+<div class="domotica-box">
 
-    <p>
-      Convertí tu hogar en un espacio más cómodo, seguro y eficiente.
-      Automatización de iluminación, control remoto desde el celular,
-      temporizadores, sensores y soluciones inteligentes adaptadas a tu necesidad.
-    </p>
+<div class="section-title">
 
-  </div>
+<h2>Domótica y Hogar Inteligente</h2>
+
+</div>
+
+<p>
+Convertí tu hogar en un espacio más cómodo,
+seguro y eficiente. Automatización de iluminación,
+temporizadores, sensores y control remoto
+desde el celular.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- CONTACTO -->
+
 <section class="contacto">
 
-  <div class="container">
+<div class="container">
 
-    <div class="title">
-      <h2>Contacto</h2>
-    </div>
+<div class="section-title">
 
-    <p>
-      Córdoba Capital y alrededores
-    </p>
+<h2>Contacto</h2>
 
-    <br>
+</div>
 
-    <a class="btn" href="https://wa.me/5493516166602" target="_blank">
-      Solicitar presupuesto
-    </a>
+<p>
+Córdoba Capital y alrededores
+</p>
 
-  </div>
+<a class="btn" href="https://wa.me/5493516166602" target="_blank">
+
+Hablar por WhatsApp
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
+</a>
+
+</div>
 
 </section>
 
 <footer>
 
-  Electricista Matriculado • Córdoba Capital
+Electricista Matriculado • Córdoba Capital
 
 </footer>
 
