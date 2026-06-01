@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electricista Matriculado Córdoba - Servicio Técnico Profesional</title>
+    <title>Electricista Matriculado Córdoba - Soluciones Técnicas</title>
     <style>
         :root {
-            --primary: #1e3a8a;
-            --secondary: #2563eb;
-            --text-main: #0f172a;
-            --text-sub: #475569;
-            --bg-card: rgba(255, 255, 255, 0.96); /* Un blanco sutilmente traslúcido pro */
-            --border-color: #e2e8f0;
+            --primary: #111827;
+            --secondary: #1d4ed8;
+            --accent: #f59e0b;
             --wsp-green: #25d366;
+            --text-main: #111827;
+            --text-sub: #6b7280;
+            --bg-page: #f3f4f6;
+            --bg-card: #ffffff;
         }
 
         * {
@@ -24,126 +25,307 @@
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             color: var(--text-main);
-            /* Fondo general de un técnico trabajando en un tablero con un filtro claro */
-            background: linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)), 
-                        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200') no-repeat center center fixed;
-            background-size: cover;
+            background-color: var(--bg-page);
             line-height: 1.6;
         }
 
-        /* Contenedor Principal Centrado */
+        /* Contenedor adaptativo para Computadora y Celular */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            background: var(--bg-card);
             min-height: 100vh;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
-            padding: 30px 20px;
-            position: relative;
         }
 
-        /* Botón de WhatsApp Flotante que acompaña el Scroll */
-        .wsp-floating-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: var(--wsp-green);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-            transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .wsp-floating-btn:hover {
-            background-color: #1ebd58;
-            transform: scale(1.03);
-        }
-
-        .wsp-icon-svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
-
-        /* Encabezado Claro y Organizado */
+        /* Encabezado */
         .hero {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 45px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1e2e 100%);
+            color: #ffffff;
+            padding: 50px 20px;
             text-align: center;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            margin-bottom: 24px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
 
         .hero h1 {
             font-size: 32px;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.2;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
             font-size: 16px;
-            color: var(--text-sub);
-            max-width: 550px;
-            margin: 0 auto 24px auto;
+            color: #a1a1aa;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Recuadros de Confianza (Pilares) */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
+        .badge {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 16px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        /* Sección de contenido dividida en dos columnas para PC */
+        .main-layout {
+            padding: 30px 20px;
+            display: block; /* Por defecto para celular */
+        }
+
+        /* Nueva Galería de Imágenes Ajustable */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            flex-wrap: wrap;
+            margin-bottom: 30px;
         }
 
-        .trust-item {
-            background: #f1f5f9;
-            border: 1px solid var(--border-color);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 13.5px;
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+            position: relative;
+            height: 180px;
+        }
+
+        /* Hacemos que la primera imagen sea más destacada */
+        .gallery-item.featured {
+            grid-column: span 2;
+            height: 260px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.65);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
             font-weight: 600;
+        }
+
+        /* Sección de Servicios */
+        .services-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary);
+            padding-left: 10px;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .icon-box {
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .service-text {
+            font-size: 15px;
+            font-weight: 500;
             color: var(--text-main);
         }
 
-        /* Estructura Principal en Bloques */
-        .main-layout {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
+        /* Botón de WhatsApp Gigante de Alta Conversión */
+        .cta-box {
+            text-align: center;
+            margin: 20px 0 40px 0;
         }
 
-        /* Grid Dual: Recuadros Especiales con tus Fotos Reales de Fondo */
-        .photo-cards-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
+        @keyframes pulsewsp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        .card-with-bg {
+        .btn-massive-wsp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: var(--wsp-green);
+            color: #ffffff;
+            text-decoration: none;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px 30px;
             border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            min-height: 280px;
-            display: flex;
-            align-items: flex-end;
-            position: relative;
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+            animation: pulsewsp 2s infinite;
+            transition: background-color 0.2s, transform 0.1s;
         }
 
-        /* Tarjeta 1 con image_4 de fondo */
-        .card-bg-1 {
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 40%, rgba(15, 23, 42, 0.4)), 
-                        url('image_4.png.
+        .btn-massive-wsp:hover {
+            background-color: #1ebd58;
+        }
+
+        .btn-massive-wsp:active {
+            transform: scale(0.98);
+        }
+
+        .cta-subtext {
+            display: block;
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-top: auto;
+        }
+
+        .footer p:first-child {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        /* --- DISEÑO PARA COMPUTADORA (PANTALLAS GRANDES) --- */
+        @media (min-width: 768px) {
+            .main-layout {
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 40px;
+                align-items: start;
+            }
+            
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .image-gallery {
+                margin-bottom: 0;
+            }
+            
+            .cta-box {
+                grid-column: span 2;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="hero">
+            <h1>Servicio Técnico Eléctrico</h1>
+            <p>Soluciones Profesionales bajo Normativas AEA</p>
+            <span class="badge">Categoría III - Instalador Habilitado</span>
+        </div>
+
+        <div class="main-layout">
+            
+            <div class="image-gallery">
+                <div class="gallery-item featured">
+                    <img class="hero-image" src="image_4.png.jpg" alt="Instalación de Tablero Eléctrico">
+                    <span class="photo-label">Trabajo Real</span>
+                </div>
+                <div class="gallery-item">
+                    <img class="hero-image" src="image_3.png.jpg" alt="Detalle de Térmicas">
+                    <span class="photo-label">Detalle Técnico</span>
+                </div>
+                <div class="gallery-item">
+                    <img class="hero-image" src="image_4.png.jpg" alt="Vista General del Panel">
+                    <span class="photo-label">Terminaciones</span>
+                </div>
+            </div>
+
+            <div class="services-section">
+                <h2>⚡ Servicios Técnicos Habilitados</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <span class="icon-box">🛠️</span>
+                        <span class="service-text">Montaje, cableado y modernización de tableros eléctricos residenciales y comerciales.</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="icon-box">🔒</span>
+                        <span class="service-text">Instalación y cálculo de protecciones térmicas y diferenciales.</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="icon-box">❄️</span>
+                        <span class="service-text">Circuitos independientes dedicados para aire acondicionado y líneas especiales.</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="icon-box">🔍</span>
+                        <span class="service-text">Diagnóstico de fugas eléctricas, cortocircuitos y fallas de aislamiento.</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="icon-box">📐</span>
+                        <span class="service-text">Protocolos de puesta a tierra y adecuaciones reglamentarias.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <a href="https://wa.me/5493516166602" class="btn-massive-wsp" target="_blank">
+                    <span>💬 PRESUPUESTO RÁPIDO POR WHATSAPP</span>
+                </a>
+                <span class="cta-subtext">¡Cotizá tu instalación de forma segura hoy mismo!</span>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>Atención Técnica Directa en Córdoba y Alrededores</p>
+            <p>Garantía de Seguridad Eléctrica y Conformidad Reglamentaria.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
